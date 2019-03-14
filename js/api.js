@@ -1,3 +1,5 @@
+"use strict";
+
 var regExp = /^(\d{5})?$/;
 var zipCode = "";
 var apiKey = "4af80d5a852a405d9baad6ce23a015b0";
@@ -23,32 +25,4 @@ $("#submit_zip").on("click", function () {
         // zip code was submitted
         zipSearch(zipCode);
     }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$(document).ready(function () {
-    "use strict"
-
-    var apiKey = "js-GNpuNwQbkhcLxNeovszfbxsQmIYBXO0m0tfkVAFujdtnhtuXMU4ApgipnDTKl0O8";
-    var queryURL = "https://www.zipcodeapi.com/rest/" + apiKey + "/info.json/44077/degrees";
-
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-    });
-
 });
