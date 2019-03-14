@@ -30,9 +30,47 @@
 
 <body>
 
-    <div class="container">
+        <div class="container border my-4 bg-white">
 
-    </div>
+                <header class="row border-bottom header_bg align-items-start position-relative">
+                    <div class="mr-auto p-2">
+                        <h1>LocalEyes</h1>
+                    </div>
+                    <div class="text-right p-4">
+                        <button id="login_button">Login</button>
+                        <button id="logout_button" class="d-none">Logout</button>
+                    </div>
+                    <div id="search_div">
+                        <form class="d-inline-block">
+                            <label for="zip_code">Zip Code: </label>
+                            <input id="zip_code" type="text" maxlength="5">
+                            <button id="submit_zip" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </header>
+        
+                
+        
+                <div id="search_criteria" class="row p-4">
+                    <div class="col-12">
+                        <div class="border p-4">
+                            
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="results_row" class="row p-4 d-none">
+        
+                </div>
+        
+        
+                <footer class="row border-top">
+                    <div class="col-sm-12 p-2 d-flex align-items-center justify-content-center">
+                        <span class="small">Copyright &#169; 2019 mike14747</span>
+                    </div>
+                </footer>
+        
+            </div>
 
 </body>
 
