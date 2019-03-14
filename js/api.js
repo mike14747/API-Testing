@@ -1,9 +1,10 @@
 var regExp = /^(\d{5})?$/;
 var zipCode = "";
+var apiKey = "4af80d5a852a405d9baad6ce23a015b0";
+var queryURL = "";
 
 function zipSearch(zip) {
-    var apiKey = "4af80d5a852a405d9baad6ce23a015b0";
-    var queryURL = "https://zipcodedownload.com:5430/Filter?format=json&citytype=d&cityname=&postalcode=44077&country=us5&key=4af80d5a852a405d9baad6ce23a015b0";
+    queryURL = "https://zipcodedownload.com:5430/Filter?format=json&citytype=d&cityname=&postalcode=" + zip + "&country=us5&key=" + apiKey;
 
     $.ajax({
         url: queryURL,
