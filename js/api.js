@@ -36,7 +36,7 @@ function weather(zip) {
     var apiKey = "4245352a3814173935fcebaa7e744e45";
     // api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1111111111
     // var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "&units=imperial&cnt=1&APPID=" + apiKey;
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=44077&APPID=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=44077&APPID=4245352a3814173935fcebaa7e744e45";
 
     $.ajax({
         url: queryURL,
