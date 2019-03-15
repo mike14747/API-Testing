@@ -35,27 +35,37 @@
             </div>
             <div id="search_div">
                 <form class="d-inline-block">
-                    <label for="zip_code">Zip Code: </label>
-                    <input id="zip_code" type="text" maxlength="5">
+                    <label for="zip_code_search">Zip Code: </label>
+                    <input id="zip_code_search" type="text" maxlength="5">
                     <button id="submit_zip" type="submit">Submit</button>
                 </form>
             </div>
         </header>
 
-
-
-        <div id="search_criteria" class="row p-4">
-            <div class="col-12">
-                <div class="border p-4">
-
+        <div id="results_row" class="row p-4 d-none">
+            <!-- info about this zip code -->
+            <div id="zip_info" class="card mb-3 d-none" style="max-width: 18rem;">
+                <div class="card-header">
+                    Zip Code Info For: <span id="zip_code" class="text-primary font-weight-bolder"></span>
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><span class="small"><b>City: </b></span><span id="zip_city"></span></p>
+                    <p class="card-text"><span class="small"><b>State: </b></span><span id="zip_state"></span></p>
+                    <p class="card-text"><span class="small"><b>Latitude: </b></span><span id="zip_lat"></span></p>
+                    <p class="card-text"><span class="small"><b>Longitude: </b></span><span id="zip_lon"></span></p>
+                    <p class="card-text"><span class="small"><b>Area Code: </b></span><span id="zip_ac"></span></p>
+                    <p class="card-text"><span class="small"><b>Time Zone: </b></span><span id="zip_tz"></span></p>
+                </div>
+            </div>
+            <!-- today and tonight's weather forecast-->
+            <div id="weather_info" class="card mb-3" style="max-width: 18rem;">
+                <div class="card-header">
+                    Zip Code Info For: <span id="zip_code1" class="text-primary font-weight-bolder"></span>
+                </div>
+                <div class="card-body">
                 </div>
             </div>
         </div>
-
-        <div id="results_row" class="row p-4 d-none">
-
-        </div>
-
 
         <footer class="row border-top">
             <div class="col-sm-12 p-2 d-flex align-items-center justify-content-center">
