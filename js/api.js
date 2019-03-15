@@ -35,16 +35,18 @@ function weather(zip) {
 
     var apiKey = "4245352a3814173935fcebaa7e744e45";
     // api.openweathermap.org/data/2.5/forecast?id=524901&APPID=1111111111
-    // var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "&units=imperial&cnt=1&APPID=" + apiKey;
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=44077&APPID=4245352a3814173935fcebaa7e744e45";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "&units=imperial&cnt=1&APPID=" + apiKey;
+    // var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=44077&APPID=4245352a3814173935fcebaa7e744e45";
+    // var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=44077&units=imperial&cnt=1&APPID=4245352a3814173935fcebaa7e744e45";
 
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
         if (response.length > 0) {
-            // console.log(response);
-            console.log("temp: " + response.list[0].main.temp + ", humidity: " + response.list[0].main.humidity + ", wind speed: " + "response.list[0].wind.speed");
+            console.log(response);
+            // console.log("temp: " + response.list[0].main.temp + ", humidity: " + response.list[0].main.humidity + ", wind speed: " + "response.list[0].wind.speed");
+            console.log("-wind speed: " + "response.list[0].wind.speed");
         }
     });
     return;
