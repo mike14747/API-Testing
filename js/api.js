@@ -65,7 +65,7 @@ function weather(lat, lon) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        if (response.cod == 200) {
+        if (response.length > 0) {
             $("#weather_info").removeClass("d-none");
             $("#weather_card").append("<div id='w'_icon'>Icon: " + response.currently.icon + "</div>");
             $("#weather_card").append("<p><b>Summary: </b>" + response.currently.summary + "</p>");
