@@ -7,11 +7,11 @@ var lon = "";
 
 function zipSearch(zip) {
     // zipcodedownload.com api key
-    var apiKey = "4af80d5a852a405d9baad6ce23a015b0";
-    var queryURL = "https://zipcodedownload.com:5430/Filter?format=json&citytype=d&cityname=&postalcode=" + zip + "&country=us5&key=" + apiKey;
+    var apiKey1 = "4af80d5a852a405d9baad6ce23a015b0";
+    var queryURL1 = "https://zipcodedownload.com:5430/Filter?format=json&citytype=d&cityname=&postalcode=" + zip + "&country=us5&key=" + apiKey1;
 
     $.ajax({
-        url: queryURL,
+        url: queryURL1,
         method: "GET"
     }).then(function (response) {
         if (response.length > 0) {
@@ -59,11 +59,11 @@ function weather(lat, lon) {
     */
     // dark sky weather
     // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
-    var apiKey = "af81fcad465db28a02669a76a2404ff6";
-    var queryURL = "https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + lon;
+    var apiKey2 = "af81fcad465db28a02669a76a2404ff6";
+    var queryURL2 = "https://api.darksky.net/forecast/" + apiKey2 + "/" + lat + "," + lon;
     // https://api.darksky.net/forecast/af81fcad465db28a02669a76a2404ff6/41.75,-81.28333
     $.ajax({
-        url: queryURL,
+        url: queryURL2,
         method: "GET"
     }).then(function (response) {
         if (response.length > 0) {
@@ -83,8 +83,16 @@ function weather(lat, lon) {
     return;
 }
 
-$("#submit_zip").on("click", function () {
-    event.preventDefault()
+/*
+function census() {
+    var apiKey = "599c1fceaf4dbdd36e8883a85282f4b2cbb5cd65";
+    var queryURL = "";
+
+}
+*/
+
+$("#submit_zip").on("click", function (event) {
+    event.preventDefault();
     zipCode = $("#zip_code_search").val().trim();
     if (zipCode == "" || !zipCode.match(regExp)) {
         console.log("Validation failed");
