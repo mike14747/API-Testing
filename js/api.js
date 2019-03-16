@@ -60,7 +60,8 @@ function weather(lat, lon) {
     // dark sky weather
     // https://api.darksky.net/forecast/[key]/[latitude],[longitude]
     var apiKey = "af81fcad465db28a02669a76a2404ff6";
-    var queryURL = "https://api.darksky.net/forecast/" + apiKey + "/" + lat + ", " + lon;
+    var queryURL = "https://api.darksky.net/forecast/" + apiKey + "/" + lat + "," + lon;
+    // https://api.darksky.net/forecast/af81fcad465db28a02669a76a2404ff6/41.75,-81.28333
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -72,10 +73,10 @@ function weather(lat, lon) {
             $("#weather_card").append("<p><b>Temperature: </b>" + response.currently.temperature + "</p>");
             $("#weather_card").append("<p><b>Feels Like: </b>" + apparentTemperature + "</p>");
             $("#weather_card").append("<p><b>Humidity: </b>" + response.currently.humidity + "</p>");
-            $("#weather_card").append("<p><b>Wind Speed: </b>" +  + "</p>");
-            $("#weather_card").append("<p><b>Gusts: </b>" +  + "</p>");
-            $("#weather_card").append("<p><b>Wind Direction: </b>" +  + "</p>");
-            $("#weather_card").append("<p><b>Sunrise: </b>" +  + "</p>");
+            $("#weather_card").append("<p><b>Wind Speed: </b>" + response.currently.windSpeed + "</p>");
+            $("#weather_card").append("<p><b>Gusts: </b>" + response.currently.windGust + "</p>");
+            $("#weather_card").append("<p><b>Wind Direction: </b>" + response.currently.windBearing + "</p>");
+            $("#weather_card").append("<p><b>Sunrise: </b>" + response.daily.data[0].SunriseTime + "</p>");
             $("#weather_card").append("<p><b>Sunset: </b>" + response.daily.data[0].SunsetTime + "</p>");
         }
     });
