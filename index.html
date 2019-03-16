@@ -44,9 +44,9 @@
 
         <div id="results_row" class="row p-4 d-none">
             <!-- info about this zip code -->
-            <div id="zip_info" class="card mb-3 d-none" style="max-width: 18rem;">
+            <div id="zip_info" class="card m-3 d-none" style="max-width: 18rem;">
                 <div class="card-header">
-                    Zip Code Info For: <span id="zip_code" class="text-primary font-weight-bolder"></span>
+                    Zip Code Info
                 </div>
                 <div class="card-body">
                     <p class="card-text"><span class="small"><b>City: </b></span><span id="zip_city"></span></p>
@@ -58,11 +58,20 @@
                 </div>
             </div>
             <!-- today and tonight's weather forecast-->
-            <div id="weather_info" class="card mb-3" style="max-width: 18rem;">
+            <div id="weather_info" class="card m-3 d-none" style="max-width: 25rem;">
                 <div class="card-header">
-                    Zip Code Info For: <span id="zip_code1" class="text-primary font-weight-bolder"></span>
+                    Current Weather Forecast
                 </div>
                 <div class="card-body">
+                    <div id="w_icon">
+                        
+                    </div>
+                    <p class="card-text"><span class="small"><b>Temperature: </b></span><span id="temp"></span></p>
+                    <p class="card-text"><span class="small"><b>Humidity: </b></span><span id="humidity"></span></p>
+                    <p class="card-text"><span class="small"><b>Wind Speed: </b></span><span id="wind_speed"></span></p>
+                    <p class="card-text"><span class="small"><b>Wind Direction: </b></span><span id="wind_deg"></span>
+                    </p>
+                    <p class="card-text"><span class="small"><b>Condition: </b></span><span id="cond"></span></p>
                 </div>
             </div>
         </div>
