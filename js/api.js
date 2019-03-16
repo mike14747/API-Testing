@@ -16,6 +16,7 @@ function zipSearch(zip) {
     }).then(function (response) {
         if (response.length > 0) {
             $("#zip_info").removeClass("d-none");
+            $("#zip_card").empty();
             $("#zip_card").append("<p><b>City: </b>" + response[0].city_name + "</p>");
             $("#zip_card").append("<p><b>State: </b>" + response[0].province + "</p>");
             $("#zip_card").append("<p><b>Latitude: </b>" + response[0].lat + "</p>");
@@ -46,6 +47,7 @@ function weather(zip) {
     }).then(function (response) {
         if (response.cod == 200) {
             $("#weather_info").removeClass("d-none");
+            $("#weather_card").empty();
             $("#weather_card").append("<div id='w'_icon'><img src='http://openweathermap.org/img/w/" + response.list[0].weather[0].icon + ".png' alt='Current Conditions'></div>");
             $("#weather_card").append("<p><b>Temperature: </b>" + response.list[0].main.temp + "</p>");
             $("#weather_card").append("<p><b>Humidity: </b>" + response.list[0].main.humidity + "</p>");
@@ -106,6 +108,7 @@ function census(zip) {
     }).then(function (response) {
         if (response.length > 0) {
             $("#census_info").removeClass("d-none");
+            $("#census_card").empty();
             $("#census_card").append("<p><b>Population: </b>" + response[1][1] + "</p>");
             $("#census_card").append("<p><b>18 and under percent: </b>" + response[1][2] + "</p>");
             $("#census_card").append("<p><b>65+ percent: </b>" + response[1][3] + "</p>");
