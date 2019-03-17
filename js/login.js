@@ -7,7 +7,7 @@ var uiConfig = {
         // User successfully signed in.
         // Return type determines whether we continue the redirect automatically
         // or whether we leave that to developer to handle.
-        return false;
+        return true;
       },
       uiShown: function() {
         // The widget is rendered.
@@ -34,15 +34,20 @@ function logOut() {
 }
 
 function logIn() {
-    // $("#loginModal").modal("show");
+    $("#loginModal").modal("show");
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // user is signed in
         console.log("Yes");
+        $("#log_in").hide();
+        $("#loginModal").modal("hide");
+        $("#log_out").show();
     } else {
         // user is not signed in
         console.log("No");
+        $("#log_in").show();
+        $("#log_out").hide();
     }
 });
