@@ -33,6 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // user is signed in
         console.log("Yes");
         $("#log_in").hide();
+        $("#loginModal").hide();
         $("#log_out").show();
     } else {
         // user is not signed in
