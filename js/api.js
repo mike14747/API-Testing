@@ -47,8 +47,8 @@ function weather(zip) {
     // https://api.weather.gov/points/41.75,-81.2833
     // then, use the data from: response.properties.forecast to make the following ajax call:
     // https://api.weather.gov/gridpoints/CLE/95,77/forecast
+    
     // openweathermap.org api key
-
     var apiKey = "4245352a3814173935fcebaa7e744e45";
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + "&units=imperial&cnt=1&APPID=" + apiKey;
 
