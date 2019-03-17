@@ -5,6 +5,17 @@ var zipCode = "";
 var lat = "";
 var lon = "";
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyB75AD4RwNGFghlu53lGcend2AO0DBhCj4",
+    authDomain: "api-testing-78812.firebaseapp.com",
+    databaseURL: "https://api-testing-78812.firebaseio.com",
+    projectId: "api-testing-78812",
+    storageBucket: "api-testing-78812.appspot.com",
+    messagingSenderId: "668074926103"
+};
+firebase.initializeApp(config);
+
 function zipSearch(zip) {
     // zipcodedownload.com api key
     var apiKey = "4af80d5a852a405d9baad6ce23a015b0";
@@ -87,8 +98,7 @@ function weather(zip) {
 function census(zip) {
     var apiKey = "599c1fceaf4dbdd36e8883a85282f4b2cbb5cd65";
     var queryURL = "https://api.census.gov/data/2017/acs/acs5/profile?get=NAME,DP05_0001E,DP05_0019PE,DP05_0024PE,DP05_0004E,DP03_0062E,DP05_0018E,DP04_0089E,DP04_0134E,DP02_0060PE,DP03_0119PE&for=zip+code+tabulation+area:" + zip + "&key=" + apiKey;
-    // https://api.census.gov/data/2016/acs/acs5?get=NAME,B01001_001E&for=zip+code+tabulation+area:44077&key=599c1fceaf4dbdd36e8883a85282f4b2cbb5cd65
-    // https://api.census.gov/data/2017/acs/acs5/profile?get=NAME,DP05_0018E&for=zip+code+tabulation+area:44077
+    // https://api.census.gov/data/2017/acs/acs5/profile?get=NAME,DP05_0001E,DP05_0019PE,DP05_0024PE,DP05_0004E,DP03_0062E,DP05_0018E,DP04_0089E,DP04_0134E,DP02_0060PE,DP03_0119PE&for=zip+code+tabulation+area:44077&key=599c1fceaf4dbdd36e8883a85282f4b2cbb5cd65
     // DP05_0001E (total population)
     // DP05_0019PE (18 and under percent of total population)
     // DP05_0024PE (65 and over percent of total population)
@@ -118,8 +128,35 @@ function census(zip) {
             $("#census_card").append("<p><b>Median Home Value: </b>" + response[1][7] + "</p>");
             $("#census_card").append("<p><b>Gross Rent: </b>" + response[1][8] + "</p>");
             var hsGradRate = 100 - response[1][9];
-            $("#census_card").append("<p><b>HS Graduation Rate: </b>" + hsGradRate + "</p>");
+            $("#census_card").append("<p><b>25+ Graduted HS: </b>" + hsGradRate + "</p>");
             $("#census_card").append("<p><b>Poverty Rate: </b>" + response[1][10] + "</p>");
+        }
+    });
+    return;
+}
+
+function censusAvg() {
+    var apiKey = "599c1fceaf4dbdd36e8883a85282f4b2cbb5cd65";
+    var queryURL = "https://api.census.gov/data/2017/acs/acs5/profile?get=NAME,DP05_0001E,DP05_0019PE,DP05_0024PE,DP05_0004E,DP03_0062E,DP05_0018E,DP04_0089E,DP04_0134E,DP02_0060PE,DP03_0119PE&for=us:1&key=" + apiKey;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        if (response.length > 0) {
+            $("#census_avg_info").removeClass("d-none");
+            $("#census_avg_card").empty();
+            $("#census_avg_card").append("<p><b>Population: </b>" + response[1][1] + "</p>");
+            $("#census_avg_card").append("<p><b>18 and under percent: </b>" + response[1][2] + "</p>");
+            $("#census_avg_card").append("<p><b>65+ percent: </b>" + response[1][3] + "</p>");
+            $("#census_avg_card").append("<p><b>Males / 100 Females: </b>" + response[1][4] + "</p>");
+            $("#census_avg_card").append("<p><b>Median Household Income: </b>" + response[1][5] + "</p>");
+            $("#census_avg_card").append("<p><b>Median Age: </b>" + response[1][6] + "</p>");
+            $("#census_avg_card").append("<p><b>Median Home Value: </b>" + response[1][7] + "</p>");
+            $("#census_avg_card").append("<p><b>Gross Rent: </b>" + response[1][8] + "</p>");
+            var hsGradRate = 100 - response[1][9];
+            $("#census_avg_card").append("<p><b>25+ Graduted HS: </b>" + hsGradRate + "</p>");
+            $("#census_avg_card").append("<p><b>Poverty Rate: </b>" + response[1][10] + "</p>");
         }
     });
     return;
@@ -137,5 +174,6 @@ $("#submit_zip").on("click", function (event) {
         zipSearch(zipCode);
         weather(zipCode);
         census(zipCode);
+        censusAvg();
     }
 });
