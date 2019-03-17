@@ -2,7 +2,15 @@
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
-    callbacks: { 'signInSuccess': function(currentUser, credential, redirectUrl) { return false; }
+    callbacks: {
+        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+            // user is signed in
+            return false;
+        },
+        uiShown: function () {
+            // the widget is rendered, so hide the loader.
+            document.getElementById('loader').style.display = 'none';
+        }
     },
     // will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
