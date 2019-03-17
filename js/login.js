@@ -34,7 +34,7 @@ function logOut() {
 }
 
 function logIn() {
-    $("#loginModal").modal("show");
+    // $("#loginModal").modal("show");
 }
 
 firebase.auth().onAuthStateChanged(function (user) {
