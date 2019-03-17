@@ -43,11 +43,14 @@
             <div class="mr-auto p-2">
                 <h1>LocalEyes</h1>
             </div>
-            <!-- login area -->
             <div>
-                <h4 class="text-center m-4">LocalEyes Login</h4>
-                <div id="firebaseui-auth-container"></div>
-                <div id="loader">Loading...</div>
+                <!-- login/logout button area -->
+                <div id="log_out" class="display_none p-2 text-right">
+                    <button onclick="logOut()">Log Out</button>
+                </div>
+                <div id="log_in" class="display_none p-2 text-right">
+                    <button onclick="logIn()">Log In</button>
+                </div>
             </div>
             <div id="search_div">
                 <form class="d-inline-block">
@@ -57,6 +60,17 @@
                 </form>
             </div>
         </header>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal fade dispaly_none" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <h4 class="text-center m-4">LocalEyes Login</h4>
+                    <div id="firebaseui-auth-container"></div>
+                    <div id="loader">Loading...</div>
+                </div>
+            </div>
+        </div>
 
         <div id="results_row" class="row p-4 d-none">
             <!-- info about this zip code -->
