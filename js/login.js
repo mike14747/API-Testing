@@ -2,25 +2,19 @@
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
-    callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-            // user is signed in
-            return true;
-        },
-        uiShown: function () {
-            // the widget is rendered, so hide the loader.
-            document.getElementById('loader').style.display = 'none';
-        }
+    callbacks: { 'signInSuccess': function(currentUser, credential, redirectUrl) { return false; }
     },
     // will use popup for IDP Providers sign-in flow instead of the default, redirect.
     signInFlow: 'popup',
-    signInSuccessUrl: '',
+    signInSuccessUrl: 'index.html',
     signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
         firebase.auth.EmailAuthProvider.PROVIDER_ID
     ]
 };
+
+// callbacks: { 'signInSuccess': function(currentUser, credential, redirectUrl) { return false; }
 
 // this will wait until the DOM is loaded.
 ui.start('#firebaseui-auth-container', uiConfig);
