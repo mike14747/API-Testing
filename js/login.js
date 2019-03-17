@@ -21,16 +21,9 @@ var uiConfig = {
     signInOptions: [
       // Leave the lines as is for the providers you want to offer your users.
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.TwitterAuthProvider.PROVIDER_ID,
       firebase.auth.GithubAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      firebase.auth.PhoneAuthProvider.PROVIDER_ID
-    ],
-    // Terms of service url.
-    tosUrl: '<your-tos-url>',
-    // Privacy policy url.
-    privacyPolicyUrl: '<your-privacy-policy-url>'
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ]
   };
 
 // callbacks: { 'signInSuccess': function(currentUser, credential, redirectUrl) { return false; }
@@ -51,6 +44,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // user is signed in
         console.log("Yes");
         $("#log_in").hide();
+        $("#loginModal").hide();
         $("#log_out").show();
     } else {
         // user is not signed in
