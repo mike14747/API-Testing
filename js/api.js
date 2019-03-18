@@ -17,7 +17,7 @@ var config = {
 firebase.initializeApp(config);
 
 // yelp via heroku
-var myurl = "https://api.yelp.com/v3/businesses/search?latitude=41.75&longitude=-81.28333&categories=restaurants";
+var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?latitude=41.75&longitude=-81.28333&categories=restaurants";
 
 $.ajax({
     url: myurl,
